@@ -51,8 +51,14 @@ static void MX_GPIO_Init(void);
 
 
 // Motor function
+const float pi = 3.14159265359;
+const int motor_speed = 600 ; //rpm
+const float wheel_dimeter = 6.5; // cm
+const float perimeter = pi*wheel_dimeter; // cm
 void move_forward();
 void move_backward();
+void rotate_right();
+void rotate_left();
 void turn_right();
 void turn_left();
 void stop_moving();
@@ -103,16 +109,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  move_forward();
-	  HAL_Delay(500);
-	  move_backward();
-	  HAL_Delay(500);
-	  turn_right();
-	  HAL_Delay(500);
-	  turn_left();
-	  HAL_Delay(500);
-	  stop_moving();
-	  HAL_Delay(5000);
+	 turn_right();
+	 HAL_Delay(5000);
+	 turn_left();
+	 HAL_Delay(5000);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -132,17 +132,27 @@ void move_backward(){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
 }
-void turn_right(){
+void rotate_right(){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
 }
-void turn_left(){
+void rotate_left(){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_3, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+}
+void turn_right(){
+	rotate_right();
+	HAL_Delay(200);
+	stop_moving();
+}
+void turn_left(){
+	rotate_left();
+	HAL_Delay(200);
+	stop_moving();
 }
 void stop_moving(){
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
