@@ -60,8 +60,8 @@ all: main-build
 main-build: AutoVoid_Car.elf secondary-outputs
 
 # Tool invocations
-AutoVoid_Car.elf AutoVoid_Car.map: $(OBJS) $(USER_OBJS) D:\Projects\Embedded\AutoVoid_Car\STM32F103C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "AutoVoid_Car.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Projects\Embedded\AutoVoid_Car\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AutoVoid_Car.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+AutoVoid_Car.elf AutoVoid_Car.map: $(OBJS) $(USER_OBJS) D:\Projects\Embedded\Bluepill\AutoVoid_Car\STM32F103C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "AutoVoid_Car.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\Projects\Embedded\Bluepill\AutoVoid_Car\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="AutoVoid_Car.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -19,5 +19,6 @@ void rotate_right(Motor_Config *motor);
 void rotate_left(Motor_Config *motor);
 void turn_right(Motor_Config *motor);
 void turn_left(Motor_Config *motor);
+void turn_opposite(Motor_Config *motor);
 void stop_moving(Motor_Config *motor);
 #endif
