@@ -91,11 +91,11 @@ Motor control logic includes:
 ---
 
 ## 📸 Preview
-
+Coming soon .....
 
 ---
 
 ## ✍️ Author
 
-**Mohamed Ali Mohamed (muhamedali0623)**  
+**Mohamed Ali Mohamed Hasabeen**  
 Student @ Alexandria University – Communications & Electronics
