@@ -51,10 +51,10 @@ static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	if(GPIO_Pin == GPIO_PIN_5){
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13,0);
+		//HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13,0);
 	}
 	else if (GPIO_Pin == GPIO_PIN_6){
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13,1);
+		HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
 	}
 }
 /* USER CODE END PFP */
@@ -99,6 +99,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_13, 1);
   while (1)
   {
     /* USER CODE END WHILE */
