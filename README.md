@@ -90,11 +90,6 @@ Motor control logic includes:
 
 ---
 
-## 📸 Preview
-Coming soon .....
-
----
-
 ## ✍️ Author
 
 **Mohamed Ali Mohamed Hasabeen**  
